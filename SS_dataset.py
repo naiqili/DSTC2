@@ -78,7 +78,7 @@ class SSIterator(object):
     def load_files(self):
         self.data = []
         load_cnt = 0
-        print "SSFetch loading data ..."
+        print("SSFetch loading data ...")
         with open(self.data_file) as f_in:
             while True:
                 l1 = f_in.readline()
@@ -88,7 +88,7 @@ class SSIterator(object):
                 self.data.append((l1, l2))
                 load_cnt = load_cnt + 1
                 if load_cnt % 100 == 0:
-                    print load_cnt, "loaded ..." 
+                    print(load_cnt, "loaded ...")
 
         self.data_len = len(self.data)
         logger.debug('Data len is %d' % self.data_len)

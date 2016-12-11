@@ -77,8 +77,8 @@ class Call(object):
         
 if __name__ == '__main__':
     import misc
-    dataset = dataset_walker("dstc2_train", dataroot="data", labels=True)
+    dataset = dataset_walker("HDCCN", dataroot="data", labels=True)
     for call in dataset :
-        if call.log["session-id"]=="voip-b772dbf437-20130402_141805" :
+        if call.log["session-id"]=="voip-f32f2cfdae-130328_192703" :
             for turn, label in call :
                 print misc.S(turn)

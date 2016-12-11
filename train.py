@@ -53,7 +53,7 @@ def init_timings():
     return timings
 
 def save(model, timings):
-    print "Saving the model..."
+    print("Saving the model...")
 
     # ignore keyboard interrupt while saving
     start = time.time()
@@ -64,10 +64,10 @@ def save(model, timings):
     numpy.savez(model.state['save_dir'] + '/' + model.state['run_id'] + "_" + model.state['prefix'] + 'timing.npz', **timings)
     signal.signal(signal.SIGINT, s)
     
-    print "Model saved, took {}".format(time.time() - start)
+    print("Model saved, took {}".format(time.time() - start))
 
 def load(model, filename):
-    print "Loading the model..."
+    print("Loading the model...")
 
     # ignore keyboard interrupt while saving
     start = time.time()
@@ -75,7 +75,7 @@ def load(model, filename):
     model.load(filename)
     signal.signal(signal.SIGINT, s)
 
-    print "Model loaded, took {}".format(time.time() - start)
+    print("Model loaded, took {}".format(time.time() - start))
 
 def main(args):     
     logging.basicConfig(level = logging.DEBUG,
@@ -152,7 +152,7 @@ def main(args):
         # Sample stuff
         if step % 200 == 0:
             for param in model.params:
-                print "%s = %.4f" % (param.name, numpy.sum(param.get_value() ** 2) ** 0.5)
+                logger.debug("%s = %.4f" % (param.name, numpy.sum(param.get_value() ** 2) ** 0.5))
 
         # Training phase
         batch = train_data.next() 
