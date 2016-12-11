@@ -1,0 +1,12 @@
+import theano
+import theano.tensor as T
+import numpy as np
+
+m = np.asarray([[0,0,1],
+                [0,1,0]])
+
+x = T.vector('x')
+y = T.nnet.softmax(x)
+f = theano.function([x], y)
+
+print f(m)
