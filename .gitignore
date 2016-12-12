@@ -93,3 +93,4 @@ model/
 tmp/
 *.pyc
 *.py~
+*.gz
