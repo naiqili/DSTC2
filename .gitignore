@@ -94,3 +94,5 @@ tmp/
 *.pyc
 *.py~
 *.gz
+state.py
+run_train.sh

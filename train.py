@@ -178,8 +178,10 @@ def main(args):
             continue
 
         train_cost = c
-
+        timings["train_cost"].append(train_cost)
+        
         this_time = time.time()
+        
         if step % state['train_freq'] == 0:
             elapsed = this_time - start_time
             h, m, s = ConvertTimedelta(this_time - start_time)
@@ -194,7 +196,8 @@ def main(args):
 
             logger.debug("[VALIDATION START]")
             vcost_list = []
-                
+            vacc_list = []
+            
             while True:
                 batch = valid_data.next()
                 # Train finished
@@ -205,17 +208,20 @@ def main(args):
                 x_data = batch['x']
                 y_data = batch['y']
 
-                c = eval_batch(x_data, y_data)
+                c, acc = eval_batch(x_data, y_data)
 
                 if numpy.isinf(c) or numpy.isnan(c):
                     continue
                         
                 vcost_list.append(c)
-                
-            logger.debug("[VALIDATION END]") 
+                vacc_list.append(acc)
                 
             valid_cost = numpy.mean(vcost_list)
+            valid_acc = numpy.mean(vacc_list)
 
+            logger.debug("[VALIDATION COST/ACCURACY]: %.4f, %.4f" % (valid_cost, valid_acc))
+            logger.debug("[VALIDATION END]")
+            
             if len(timings["valid_cost"]) == 0 or valid_cost < numpy.min(timings["valid_cost"]):
                 patience = state['patience']
                 # Saving model if decrease in validation cost
@@ -223,7 +229,6 @@ def main(args):
             elif valid_cost >= timings["valid_cost"][-1] * state['cost_threshold']:
                 patience -= 1
 
-            timings["train_cost"].append(train_cost)
             timings["valid_cost"].append(valid_cost)
 
             # Reset train cost, train misclass and train done

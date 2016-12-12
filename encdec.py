@@ -332,6 +332,8 @@ class EncoderDecoder(Model):
         self.training_cost = self.build_cost(self.ot, self.y_data, training_mask)
         self.updates = self.compute_updates(self.training_cost, self.params)
         self.y_pred = self.ot.argmax(axis=2) # See lab/argmax_test.py
+        self.accuracy = T.mean(T.sum(T.eq(self.y_pred, self.y_data) * (1 - training_mask), axis=0) / \
+                               T.sum(1 - training_mask, axis=0))
 
     def build_cost(self, ot, y, mask):
         # See lab/dimshuffle_test.py for why I do this
@@ -364,7 +366,7 @@ class EncoderDecoder(Model):
             self.eval_fn = \
                            theano.function(inputs=[self.x_data,
                                                    self.y_data],
-                                           outputs=self.training_cost,
+                                           outputs=[self.training_cost, self.accuracy],
                                            name="eval_fn")
             return self.eval_fn
 
