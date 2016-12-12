@@ -199,9 +199,4 @@ if __name__=='__main__':
 
     for i in xrange(3):
         batch = train_data.next()
-        print batch['x']
-        print
-        print batch['mask']
-        print
-        print batch['y']
-        print
+

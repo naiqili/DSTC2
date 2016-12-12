@@ -91,7 +91,7 @@ def parse_dialog_acts(dialog_acts):
 
 # Training data
 
-print "Loading training data ..."
+print("Loading training data ...")
 
 dataset_train = dataset_walker("dstc2_train", dataroot=dataroot_path, \
                                labels=True)
@@ -118,7 +118,7 @@ for call in dataset_train :
 
 # Dev data
 
-print "Loading dev data ..."
+print("Loading dev data ...")
 
 dataset_dev = dataset_walker("dstc2_dev", dataroot=dataroot_path, \
                                labels=True)
@@ -151,7 +151,7 @@ for call in dataset_dev :
 
 # Training data for method
 
-print "Building " + method_train_path + " ..."
+print("Building " + method_train_path + " ...")
 max_train_len = 0
 with open(method_train_path, 'w') as f:
     for label_log in train_data:
@@ -172,7 +172,7 @@ with open(method_train_path, 'w') as f:
 
 # Dev data for method
 
-print "Building " + method_dev_path + " ..."
+print("Building " + method_dev_path + " ...")
 max_dev_len = 0
 with open(method_dev_path, 'w') as f:
     for label_log in dev_data:
@@ -197,24 +197,17 @@ save_dict()
 
 # Output summary
 
-print "Word count:", wordcnt
-print
-print "Num of req_ont, method_ont, info_ont:", \
-    len(ont_req), len(ont_meth), len(ont_info)
-print
-print "Num of train data:", len(train_data)
-print
-print "Num of dev data:", len(dev_data)
-print
-print "Max train seq len", max_train_len
-print
-print "Max dev seq len", max_dev_len
-print
-print "Example of dict:"
-os.system("head " + dict_path)
-print
-print "Example of method.train:"
-os.system("head " + method_train_path)
-print
-print "Example of method.dev:"
-os.system("head " + method_dev_path)
+print("Word count:", wordcnt)
+print()
+print("Num of req_ont, method_ont, info_ont:", \
+    len(ont_req), len(ont_meth), len(ont_info))
+print()
+print("Num of train data:", len(train_data))
+print()
+print("Num of dev data:", len(dev_data))
+print()
+print("Max train seq len", max_train_len)
+print()
+print("Max dev seq len", max_dev_len)
+print()
+

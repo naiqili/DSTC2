@@ -91,3 +91,6 @@ data/
 log/
 model/
 tmp/
+*.pyc
+*.py~
+*.gz
