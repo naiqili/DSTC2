@@ -1,0 +1,30 @@
+Num of unique user actions: 28
+Counts:
+affirm(): 555
+reqalts(): 1105
+request(area): 183
+repeat(): 25
+ack(): 20
+confirm(food): 72
+bye(): 2198
+deny(food): 8
+deny(name): 4
+request(pricerange): 286
+request(signature): 3
+request(food): 328
+inform(food): 3317
+request(phone): 1852
+request(postcode): 401
+restart(): 7
+thankyou(): 2139
+inform(pricerange): 1630
+request(addr): 1753
+inform(this): 970
+inform(name): 19
+reqmore(): 4
+request(name): 3
+confirm(area): 25
+confirm(pricerange): 31
+hello(): 54
+inform(area): 1871
+negate(): 193

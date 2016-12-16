@@ -59,7 +59,6 @@ class Call(object):
         if (labels_filename != None):
             f = open(labels_filename)
             self.labels = json.load(f)
-            self.task = self.labels['task-information']
             f.close()
         else:
             self.labels = None

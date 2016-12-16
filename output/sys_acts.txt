@@ -1,0 +1,29 @@
+Num of unique sys actions: 27
+Counts:
+inform(addr): 1534
+canthelp(food): 1179
+request(area): 925
+offer(name): 8074
+repeat(): 18
+impl-conf(pricerange): 8
+select(food): 134
+impl-conf(food): 9
+inform(postcode): 391
+confirm-domain(): 99
+request(pricerange): 456
+request(food): 1160
+impl-conf(area): 3
+select(pricerange): 92
+inform(food): 2036
+canthelp.exception(name): 114
+inform(pricerange): 2512
+inform(phone): 1562
+expl-conf(area): 283
+canthelp(pricerange): 200
+canthelp(area): 385
+expl-conf(food): 278
+reqmore(): 119
+select(area): 120
+inform(area): 2349
+expl-conf(pricerange): 144
+welcomemsg(): 2118
